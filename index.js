@@ -86,10 +86,16 @@ function createSpan (data) {
   var id = data.id
 
   var attr = Object.keys(data.attr).map(function (key) {
-    return `data-${key}="${data.attr[key]}"`
+    return 'data-' + key + '="' + data.attr[key] + '"'
   }).join(' ')
 
-  return `<span${id ? ` id="${id}"` : ''} ${classes ? `class="${classes}"` : ''} ${attr || ''}>${text}</span>`
+  return '<span' +
+    (id ? ' id="' + id + '"' : '') +
+    (classes ? ' class="' + classes + '"' : '') +
+    (' ' + attr || '') +
+    '>' +
+    text +
+    '</span>'
 }
 
 function html2md () {
